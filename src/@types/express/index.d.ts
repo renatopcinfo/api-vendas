@@ -3,6 +3,6 @@ declare namespace Express {
     user: {
       id: string;
     };
-    //file: { filename: string };
+    file: { filename: string };
   }
 }
