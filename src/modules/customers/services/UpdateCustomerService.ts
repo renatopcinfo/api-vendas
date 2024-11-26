@@ -1,7 +1,7 @@
 import AppError from '@shared/errors/AppError';
-import { compare, hash } from 'bcryptjs';
 import { getCustomRepository } from 'typeorm';
 import CustomersRepository from '../typeorm/repositories/CustomersRepository';
+import Customers from '../typeorm/entities/Customer';
 
 interface IRequest {
   id: string;
@@ -10,7 +10,7 @@ interface IRequest {
 }
 
 class UpdateCustomerService {
-  public async execute({ id, name, email }: IRequest): Promise<User> {
+  public async execute({ id, name, email }: IRequest): Promise<Customers> {
     const customersRepository = getCustomRepository(CustomersRepository);
 
     const customer = await customersRepository.findById(id);
